@@ -2,11 +2,11 @@
 	<ul class='restaurant-list'>
 		<% @restaurants.each do |restaurant| %>
 			<li class='restaurant-list-item'>
-				<h2 class='restaurant-list-item-data'>
-					<%= restaurant.name %> | 
-					<%= restaurant.cuisine %> |
-					<%= restaurant.reviews.average(:rating) %>
-				</h2>
+				<p class='restaurant-list-item-data'>
+					<h2 class='list-item-name'><%= restaurant.name %></h2>
+					<h2 class='list-item-cuisine'><%= restaurant.cuisine %></h2>
+					<h2 class='list-item-score'><%= restaurant.reviews.average(:rating) %></h2>
+				</p>
 				<ul class='restaurant-reviews-list'>
 					<% restaurant.reviews.reverse.each do |review| %>
 						<li class='review-list-item'>

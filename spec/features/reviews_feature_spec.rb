@@ -33,7 +33,7 @@ describe 'reviews'  do
 
 		it 'average score' do
 			_review_sample_restaurant(5, 'Wonderful')
-			_review_sample_restaurant(1, 'Wonderful')
+			_review_sample_restaurant(1, 'poor')
 			expect(page).to have_content(3)
 		end
 
