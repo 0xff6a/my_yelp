@@ -34,17 +34,4 @@ describe 'reviews'  do
 
 	end
 
-	def _create_sample_restaurant
-		Restaurant.create(name: 'Red Dog Saloon',
-												cuisine: 'Diner',				)
-	end
-
-	def _review_sample_restaurant(rating, comment)
-		visit '/restaurants'
-		click_link 'Review'
-		fill_in 'review_rating', with: rating
-		fill_in 'review_comment', with: comment
-		click_on 'Publish'
-	end
-
 end
