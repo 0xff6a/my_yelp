@@ -18,6 +18,11 @@ describe 'reviews'  do
 			expect(page).to have_content("Error: rating is not a number")
 		end
 
+		it 'must have a rating between 0 and 5' do
+			_review_sample_restaurant(6, 'Wonderful')
+			expect(page).to have_content("Error: rating is not included in the list")
+		end
+
 	end
 
 	context 'displaying reviews' do
