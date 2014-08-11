@@ -4,12 +4,13 @@
 			<li class='restaurant-list-item'>
 				<h2 class='restaurant-list-item-data'>
 					<%= restaurant.name %> | 
-					<%= restaurant.cuisine %> 
+					<%= restaurant.cuisine %> |
+					<%= restaurant.reviews.average(:rating) %>
 				</h2>
 				<ul class='restaurant-reviews-list'>
 					<% restaurant.reviews.each do |review| %>
 						<li class='review-list-item'>
-							<h2 class='review-rating'><%= review.rating %></h2>
+							<var class='review-rating'><%= review.rating %></var>
 							<p class='review-comment'><%= review.comment %></p>
 						</li>
 					<% end %>
