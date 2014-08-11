@@ -19,9 +19,9 @@ describe 'restaurants' do
 
 		it 'should throw an error if a no-name restaurant is added' do
 			_add_restaurant('', 'American')
-			expect(page).to have_content("name can't be blank")
+			expect(page).to have_content("Error: name can't be blank")
 			_add_restaurant('KFC', '')
-			expect(page).to have_content("cuisine can't be blank")
+			expect(page).to have_content("Error: cuisine can't be blank")
 		end
 
 		it 'should throw an error if a no-cuisine restaurant is added' do

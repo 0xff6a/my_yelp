@@ -13,6 +13,11 @@ describe 'reviews'  do
 			expect(page).to have_content(5)
 		end
 
+		it 'must have a numerical rating' do
+			_review_sample_restaurant("bleep", 'Wonderful')
+			expect(page).to have_content("Error: rating is not a number")
+		end
+
 	end
 
 	context 'displaying reviews' do

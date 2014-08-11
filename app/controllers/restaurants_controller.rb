@@ -1,5 +1,7 @@
 class RestaurantsController < ApplicationController
 
+	include RestaurantsHelper
+
 	def index
 		@restaurants = _restaurant_list
 	end
@@ -18,39 +20,13 @@ class RestaurantsController < ApplicationController
 	end
 
 	def update
-		target_restaurant = Restaurant.find(params[:id])
-		target_restaurant.update(params[:restaurant].permit(:name, :cuisine))
-		_restaurant_update_success
+		target_restaurant = Restaurant.find(params[:id]).update(params[:restaurant].permit(:name, :cuisine))
+		target_restaurant ? _restaurant_update_success : _restaurant_update_error(target_restaurant)
 	end
 
 	def destroy
 		target_restaurant = Restaurant.find(params[:id])
-		target_restaurant.delete
-		_restaurant_delete_success
-	end
-
-	def _restaurant_update_success
-		flash[:notice] = 'The restaurant has been updated'
-		redirect_to '/restaurants'
-	end
-
-	def _restaurant_delete_success
-		flash[:notice] = 'The restaurant has been removed'
-		redirect_to '/restaurants'
-	end
-
-	def _restaurant_create_success
-		flash[:notice] = 'Your restaurant has been added'
-		redirect_to '/restaurants'
-	end
-
-	def _restaurant_create_error(bad_restaurant)
-		flash[:errors] = bad_restaurant.errors.messages
-		redirect_to '/restaurants/new'
-	end
-
-	def _restaurant_list
-		Restaurant.all.reverse
+		target_restaurant.delete ? _restaurant_delete_success : _restaurant_delete_error(target_restaurant)
 	end
 
 end
