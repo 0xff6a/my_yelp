@@ -5,8 +5,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		name = params[:restaurant][:name]
-		cuisine = params[:restaurant][:cuisine]
+		name, cuisine = params[:restaurant].values
 		Restaurant.create(:name => name, :cuisine => cuisine)
 		flash[:notice] = 'Your restaurant has been added'
 		@restaurants = Restaurant.all
