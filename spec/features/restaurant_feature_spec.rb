@@ -45,18 +45,6 @@ describe 'restaurants' do
 
 	end
 
-	context 'reviews' do
-
-		before(:each) do
-			_create_sample_restaurant
-		end
-
-		it 'can be added by a user' do
-
-		end
-
-	end
-
 	def _create_sample_restaurant
 		Restaurant.create(name: 'Red Dog Saloon',
 												cuisine: 'Diner',				)

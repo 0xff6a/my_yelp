@@ -2,9 +2,15 @@
 	<ul class='restaurant-list'>
 		<% @restaurants.each do |restaurant| %>
 			<li class='restaurant-list-item'>
-				<%= restaurant.name %> | <%= restaurant.cuisine %> |
-				<%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} %> |
-				<%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+				<h2 class='restaurant-list-item-data'>
+					<%= restaurant.name %> | 
+					<%= restaurant.cuisine %> 
+				</h2>
+				<nav class='restaurant-list-item-options'>
+					<%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} %> |
+					<%= link_to 'Edit', edit_restaurant_path(restaurant) %> |
+					<%= link_to 'Review', new_review_path %>
+				</nav>
 			</li>
 		<% end %>	
 	</ul>
