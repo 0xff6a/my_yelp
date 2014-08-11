@@ -20,14 +20,18 @@ class RestaurantsController < ApplicationController
 	def update
 		target_restaurant = Restaurant.find(params[:id])
 		target_restaurant.update(params[:restaurant].permit(:name, :cuisine))
-		flash[:notice] = 'The restaurant has been updated'
-		redirect_to '/restaurants'
+		_restaurant_update_success
 	end
 
 	def destroy
 		target_restaurant = Restaurant.find(params[:id])
 		target_restaurant.delete
 		_restaurant_delete_success
+	end
+
+	def _restaurant_update_success
+		flash[:notice] = 'The restaurant has been updated'
+		redirect_to '/restaurants'
 	end
 
 	def _restaurant_delete_success

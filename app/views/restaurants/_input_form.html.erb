@@ -1,6 +1,8 @@
 <section class='restaurant-input'>
 	<%= form_for restaurant, html: {class: 'restaurant-input-form'} do |f| %>
+		<%= f.label :name %>
 		<%= f.text_field :name, placeholder: "#{restaurant.name ? restaurant.name : 'Restaurant name'}" %>
+		<%= f.label :cuisine %>
 		<%= f.text_field :cuisine, placeholder: "#{restaurant.cuisine ? restaurant.cuisine : 'Cuisine'}" %>
 		<%= f.button "#{restaurant.name ? 'Update Restaurant' : 'Add Restaurant'}" %>
 	<% end %>

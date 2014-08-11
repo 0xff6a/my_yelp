@@ -22,8 +22,7 @@ describe 'restaurants' do
 	context 'restaurants have been added' do
 
 		before(:each) do
-			Restaurant.create(name: 'Red Dog Saloon',
-												cuisine: 'Diner'				)
+			_create_sample_restaurant
 		end
 
 		it 'should display them' do
@@ -33,21 +32,42 @@ describe 'restaurants' do
 		end
 
 		it 'they can be edited' do
-			visit '/restaurants'
-			click_link 'Edit'
-			fill_in 'restaurant_cuisine', :with => 'American Diner'
-			click_on 'Update Restaurant'
+			_edit_restaurant(nil, 'American Diner')
 			expect(page).to have_content('American Diner')
 			expect(page).to have_content('The restaurant has been updated')
 		end
 
 		it 'they can be deleted' do
-			visit '/restaurants'
-			click_link 'Delete'
+			_delete_restaurant
 			expect(page).not_to have_content('Red Dog Saloon')
 			expect(page).to have_content('The restaurant has been removed')
 		end
 
+	end
+
+	context 'reviews' do
+
+		before(:each) do
+			_create_sample_restaurant
+		end
+
+		it 'can be added by a user' do
+
+		end
+
+	end
+
+	def _create_sample_restaurant
+		Restaurant.create(name: 'Red Dog Saloon',
+												cuisine: 'Diner',				)
+	end
+
+	def _edit_restaurant(name, cuisine)
+			visit '/restaurants'
+			click_link 'Edit'			
+			fill_in 'restaurant_name', :with => name if name
+			fill_in 'restaurant_cuisine', :with => cuisine if cuisine
+			click_on 'Update Restaurant'
 	end
 
 	def _add_restaurant(name, cuisine)
@@ -56,6 +76,11 @@ describe 'restaurants' do
 		fill_in 'restaurant_name', :with => name
 		fill_in 'restaurant_cuisine', :with => cuisine
 		click_on 'Add Restaurant'
+	end
+
+	def _delete_restaurant
+		visit '/restaurants'
+		click_link 'Delete'
 	end
 
 	def _restaurant
