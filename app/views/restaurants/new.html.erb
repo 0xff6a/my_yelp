@@ -1,7 +1,1 @@
-<section class='new-restaurant-input'>
-	<%= form_for Restaurant.new, html: {class: 'new-restaurant-input'} do |f| %>
-		<%= f.text_field :name, placeholder: 'Restaurant name' %>
-		<%= f.text_field :cuisine, placeholder: 'Cuisine' %>
-		<%= f.button 'Add Restaurant' %>
-	<% end %>
-</section>
+<%= render partial: 'input_form', locals: {restaurant: @restaurant} %>
