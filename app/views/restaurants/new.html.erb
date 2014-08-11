@@ -1,7 +1,7 @@
 <section class='new-restaurant-input'>
-	<form class='new-restaurant-form' action='/restaurants' method='post'>
-		<input type='text' name='restaurant_name' placeholder='Restaurant name'>
-		<input type='text' name='restaurant_cuisine' placeholder='Cuisine'>
-		<button class='new-restaurant-button' type='submit'>Add Restaurant</button>
-	</form>
+	<%= form_for Restaurant.new, html: {class: 'new-restaurant-input'} do |f| %>
+		<%= f.text_field :name, placeholder: 'Restaurant name' %>
+		<%= f.text_field :cuisine, placeholder: 'Cuisine' %>
+		<%= f.button 'Add Restaurant' %>
+	<% end %>
 </section>
