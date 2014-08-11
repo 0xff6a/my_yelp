@@ -33,6 +33,19 @@ describe 'restaurants' do
 			expect(page).to have_content('Diner')
 		end
 
+		xit 'they can be edited' do
+			visit '/restaurants'
+			click_link 'Edit'
+		end
+
+		it 'they can be deleted' do
+			visit '/restaurants'
+			click_link 'Delete'
+			expect(Restaurant.count).to eq(0)
+			expect(page).not_to have_content('Red Dog Saloon')
+			expect(page).to have_content('The restaurant has been removed')
+		end
+
 	end
 
 	def _add_restaurant(name, cuisine)
