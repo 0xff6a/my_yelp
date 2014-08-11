@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
 
 	def create
 		new_restaurant = Restaurant.create(params[:restaurant].permit(:name, :cuisine))
-		new_restaurant ? _restaurant_create_success : _restaurant_create_error(new_restaurant.errors)
+		new_restaurant.save ? _restaurant_create_success : _restaurant_create_error(new_restaurant)
 	end
 
 	def edit
@@ -44,8 +44,9 @@ class RestaurantsController < ApplicationController
 		redirect_to '/restaurants'
 	end
 
-	def _restaurant_create_error(errors)
-		flash[:errors] = errors
+	def _restaurant_create_error(bad_restaurant)
+		flash[:errors] = bad_restaurant.errors.messages
+		redirect_to '/restaurants/new'
 	end
 
 	def _restaurant_list

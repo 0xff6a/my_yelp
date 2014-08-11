@@ -37,8 +37,8 @@ describe 'reviews'  do
 	def _review_sample_restaurant(rating, comment)
 		visit '/restaurants'
 		click_link 'Review'
-		fill_in 'review_rating', :with => rating
-		fill_in 'review_comment', :with => comment
+		fill_in 'review_rating', with: rating
+		fill_in 'review_comment', with: comment
 		click_on 'Publish'
 	end
 

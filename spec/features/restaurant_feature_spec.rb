@@ -17,6 +17,16 @@ describe 'restaurants' do
 			expect(page).to have_content('Your restaurant has been added')
 		end	
 
+		it 'should throw an error if a no-name restaurant is added' do
+			_add_restaurant('', 'American')
+			expect(page).to have_content("name can't be blank")
+			_add_restaurant('KFC', '')
+			expect(page).to have_content("cuisine can't be blank")
+		end
+
+		it 'should throw an error if a no-cuisine restaurant is added' do
+		end
+
 	end
 
 	context 'restaurants have been added' do
@@ -53,16 +63,16 @@ describe 'restaurants' do
 	def _edit_restaurant(name, cuisine)
 			visit '/restaurants'
 			click_link 'Edit'			
-			fill_in 'restaurant_name', :with => name if name
-			fill_in 'restaurant_cuisine', :with => cuisine if cuisine
+			fill_in 'restaurant_name', with: name if name
+			fill_in 'restaurant_cuisine', with: cuisine if cuisine
 			click_on 'Update Restaurant'
 	end
 
 	def _add_restaurant(name, cuisine)
 		visit '/restaurants'
 		click_link 'Add a restaurant'
-		fill_in 'restaurant_name', :with => name
-		fill_in 'restaurant_cuisine', :with => cuisine
+		fill_in 'restaurant_name', with: name
+		fill_in 'restaurant_cuisine', with: cuisine
 		click_on 'Add Restaurant'
 	end
 
