@@ -8,6 +8,10 @@ class ReviewsController < ApplicationController
 	def create
 		@restaurant = Restaurant.find(params[:restaurant_id])
 		@restaurant.reviews.create(params[:review].permit(:rating, :comment))
+		_restaurant_review_success
+	end
+
+	def _restaurant_review_success
 		flash[:notice] = 'Thank you for your review'
 		redirect_to '/restaurants'
 	end

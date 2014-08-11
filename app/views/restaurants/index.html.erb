@@ -8,10 +8,10 @@
 					<%= restaurant.reviews.average(:rating) %>
 				</h2>
 				<ul class='restaurant-reviews-list'>
-					<% restaurant.reviews.each do |review| %>
+					<% restaurant.reviews.reverse.each do |review| %>
 						<li class='review-list-item'>
-							<var class='review-rating'><%= review.rating %></var>
 							<p class='review-comment'><%= review.comment %></p>
+							<var class='review-rating'><%= review.rating %></var>
 						</li>
 					<% end %>
 				</ul>
