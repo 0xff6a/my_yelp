@@ -2,7 +2,7 @@
 	<ul class='restaurant-list'>
 		<% @restaurants.each do |restaurant| %>
 			<li class='restaurant-list-item'>
-				<%= restaurant.name %> | <%= restaurant.cuisine %>
+				<%= restaurant.name %> | <%= restaurant.cuisine %> |
 				<%= link_to 'Delete', restaurant, method: :delete, data: { confirm: 'Are you sure?'} %>
 			</li>
 		<% end %>	
