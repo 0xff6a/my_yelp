@@ -19,6 +19,7 @@ describe 'restaurants' do
 			expect(Restaurant.count).to eq(1)
 			expect(Restaurant.first.name).to eq('Red Dog Saloon')
 			expect(Restaurant.first.cuisine).to eq('American')
+			expect(page).to have_content('Your restaurant has been added')
 		end	
 
 	end
