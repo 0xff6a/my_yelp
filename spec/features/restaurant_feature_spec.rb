@@ -12,9 +12,8 @@ describe 'restaurants' do
 
 		it 'should allow a user to add a restaurant' do
 			_add_restaurant('Red Dog Saloon', 'American')
-			expect(Restaurant.count).to eq(1)
-			expect(_restaurant.name).to eq('Red Dog Saloon')
-			expect(_restaurant.cuisine).to eq('American')
+			expect(page).to have_content('Red Dog Saloon')
+			expect(page).to have_content('American')
 			expect(page).to have_content('Your restaurant has been added')
 		end	
 
@@ -33,15 +32,18 @@ describe 'restaurants' do
 			expect(page).to have_content('Diner')
 		end
 
-		xit 'they can be edited' do
+		it 'they can be edited' do
 			visit '/restaurants'
 			click_link 'Edit'
+			fill_in 'restaurant_cuisine', :with => 'American Diner'
+			click_on 'Update Restaurant'
+			expect(page).to have_content('American Diner')
+			expect(page).to have_content('The restaurant has been updated')
 		end
 
 		it 'they can be deleted' do
 			visit '/restaurants'
 			click_link 'Delete'
-			expect(Restaurant.count).to eq(0)
 			expect(page).not_to have_content('Red Dog Saloon')
 			expect(page).to have_content('The restaurant has been removed')
 		end

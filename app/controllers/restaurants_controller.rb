@@ -13,6 +13,17 @@ class RestaurantsController < ApplicationController
 		new_restaurant ? _restaurant_create_success : _restaurant_create_error(new_restaurant.errors)
 	end
 
+	def edit
+		@restaurant = Restaurant.find(params[:id])
+	end
+
+	def update
+		target_restaurant = Restaurant.find(params[:id])
+		target_restaurant.update(params[:restaurant].permit(:name, :cuisine))
+		flash[:notice] = 'The restaurant has been updated'
+		redirect_to '/restaurants'
+	end
+
 	def destroy
 		target_restaurant = Restaurant.find(params[:id])
 		target_restaurant.delete

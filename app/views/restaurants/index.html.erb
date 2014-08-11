@@ -3,11 +3,12 @@
 		<% @restaurants.each do |restaurant| %>
 			<li class='restaurant-list-item'>
 				<%= restaurant.name %> | <%= restaurant.cuisine %> |
-				<%= link_to 'Delete', restaurant, method: :delete, data: { confirm: 'Are you sure?'} %>
+				<%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} %> |
+				<%= link_to 'Edit', edit_restaurant_path(restaurant) %>
 			</li>
 		<% end %>	
 	</ul>
 <% else %>
 	No restaurants listed
 <% end %>
-<a href='/restaurants/new'>Add a restaurant</a>
+<%= link_to 'Add a restaurant', new_restaurant_path %>
