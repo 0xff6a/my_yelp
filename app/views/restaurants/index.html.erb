@@ -17,9 +17,13 @@
 						<% end %>
 					</ul>
 					<nav class='restaurant-list-item-options'>
-						<%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} %> |
-						<%= link_to 'Edit', edit_restaurant_path(restaurant) %> |
-						<%= link_to 'Review', new_restaurant_review_path(restaurant) %>
+						<% if current_user %>
+							<% if current_user.id == restaurant.user_id %>
+								<%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} %> |
+								<%= link_to 'Edit', edit_restaurant_path(restaurant) %> |
+							<% end %>
+							<%= link_to 'Review', new_restaurant_review_path(restaurant) %>
+						<% end %>
 					</nav>
 				</li>
 			<% end %>	

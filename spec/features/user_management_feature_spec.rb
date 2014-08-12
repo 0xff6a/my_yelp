@@ -43,11 +43,14 @@ describe 'User management feature:' do
 
 		before(:each) { _sign_up_test_user }
 
-		it 'a user can only edit restaurants they have created' do
-			
+		it 'a user can only see a link to edit restaurants they have created' do
+			_add_restaurant('KFC', 'bad')
+			_sign_out
+			_sign_up_user('nottest@test.com', '12345678')
+			expect(page).not_to have_css 'a', text: 'Edit'
 		end
 
-		xit 'a user can only delete restaurants they have created' do
+		it 'a user can only delete restaurants they have created' do
 		end
 
 		xit 'a user can only leave 1 review per restaurant' do
