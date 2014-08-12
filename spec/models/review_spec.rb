@@ -11,38 +11,50 @@ RSpec.describe Review, :type => :model do
 	context 'validations' do
 
 		it 'should have a rating' do
-			invalid_review = _restaurant.reviews.create(comment: 'wonderful', user_id: @other_user.id)
+			invalid_review = _restaurant.reviews.create(comment: 'wonderful',
+																									user_id: @other_user.id)
 			expect(invalid_review).not_to be_valid
 			expect(invalid_review.errors.messages[:rating]).to include("can't be blank")
 		end
 
 		it 'should have a numerical rating' do
-			invalid_review = _restaurant.reviews.create(rating: 'top', comment: 'wonderful', user_id: @other_user.id)
+			invalid_review = _restaurant.reviews.create(rating: 'top', 
+																									comment: 'wonderful', 
+																									user_id: @other_user.id)
 			expect(invalid_review).not_to be_valid
 			expect(invalid_review.errors.messages[:rating]).to include("is not a number")
 		end
 
 		it 'should have a rating < 5' do
-			invalid_review = _restaurant.reviews.create(rating: 99, comment: 'wonderful', user_id: @other_user.id)
+			invalid_review = _restaurant.reviews.create(rating: 99, 
+																									comment: 'wonderful', 
+																									user_id: @other_user.id)
 			expect(invalid_review).not_to be_valid
 			expect(invalid_review.errors.messages[:rating]).to include("is not included in the list")
 		end
 
 		it 'should have a rating > 0' do
-			invalid_review = _restaurant.reviews.create(rating: -99, comment: 'wonderful', user_id: @other_user.id)
+			invalid_review = _restaurant.reviews.create(rating: -99, 
+																									comment: 'wonderful', 
+																									user_id: @other_user.id)
 			expect(invalid_review).not_to be_valid
 			expect(invalid_review.errors.messages[:rating]).to include("is not included in the list")
 		end
 
 		it 'the comment should be maximum 150 characters' do
 			comment = "$" * 200
-			invalid_review = _restaurant.reviews.create(rating: 3, comment: comment, user_id: @other_user.id)
+			invalid_review = _restaurant.reviews.create(rating: 3, 
+																									comment: comment, 
+																									user_id: @other_user.id)
 			expect(invalid_review).not_to be_valid
-			expect(invalid_review.errors.messages[:comment]).to include("is too long (maximum is 150 characters)")
+			expect(invalid_review.errors.messages[:comment]).to include(\
+			"is too long (maximum is 150 characters)")
 		end
 
 		it 'it should belong to a restaurant' do
-			invalid_review = Review.new(rating: 3, comment: 'poor', user_id: @other_user.id)
+			invalid_review = Review.new(rating: 3, 
+																	comment: 'poor', 
+																	user_id: @other_user.id)
 			expect(invalid_review).not_to be_valid
 		end
 
@@ -52,7 +64,9 @@ RSpec.describe Review, :type => :model do
 		end
 
 		it 'should be valid with a rating in (0..5), a user and a restaurant' do
-			valid_review = _restaurant.reviews.create(rating: 3, comment: 'poor', user_id: @other_user.id)
+			valid_review = _restaurant.reviews.create(rating: 3, 
+																								comment: 'poor', 
+																								user_id: @other_user.id)
 			expect(valid_review).to be_valid
 		end
 
