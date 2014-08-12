@@ -10,20 +10,11 @@
 					</p>
 					<ul class='restaurant-reviews-list'>
 						<% restaurant.reviews.reverse.each do |review| %>
-							<li class='review-list-item'>
-								<p class='review-comment'><%= review.comment %></p>
-								<var class='review-rating'><%= review.rating %></var>
-							</li>
+							<%= render partial: 'review_list_item', locals: {review: review} %>
 						<% end %>
 					</ul>
 					<nav class='restaurant-list-item-options'>
-						<% if current_user %>
-							<% if current_user.id == restaurant.user_id %>
-								<%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} %> |
-								<%= link_to 'Edit', edit_restaurant_path(restaurant) %> |
-							<% end %>
-							<%= link_to 'Review', new_restaurant_review_path(restaurant) %>
-						<% end %>
+						<%= render partial: 'nav_bar', locals: {restaurant: restaurant} %>
 					</nav>
 				</li>
 			<% end %>	
@@ -32,6 +23,3 @@
 <% else %>
 	<h1 class='empty-list'>No restaurants listed</h1>
 <% end %>
-<nav class='add-restaurant-options'>
-	<%= link_to 'Add a restaurant', new_restaurant_path %>
-</nav>

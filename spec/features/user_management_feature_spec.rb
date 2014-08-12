@@ -39,7 +39,20 @@ describe 'User management feature:' do
 
 	end
 
-	context 'content access rights' do
+	context	'access rights when signed in' do
+
+		it 'a user cannot see a link to add restaurants' do
+			visit restaurants_path
+			expect(page).not_to have_css 'a', text: 'Add a restaurant'
+		end
+
+		xit 'a user cannot see a link to edit restaurants' do
+
+		end
+
+	end
+
+	context 'content access rights when signed in' do
 
 		before(:each) { _sign_up_test_user }
 
@@ -51,6 +64,10 @@ describe 'User management feature:' do
 		end
 
 		it 'a user can only delete restaurants they have created' do
+			_add_restaurant('KFC', 'bad')
+			_sign_out
+			_sign_up_user('nottest@test.com', '12345678')
+			expect(page).not_to have_css 'a', text: 'Delete'
 		end
 
 		xit 'a user can only leave 1 review per restaurant' do

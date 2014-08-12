@@ -7,12 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <header class='top-bar'>
-	<p class='current-user-id'>
-		<% if user_signed_in? %>
-			<%= current_user.email %>
-		<% end %>
-	</p>
-	<%= render 'layouts/nav_bar' %>
+	<%= render 'layouts/header' %>
 </header>
 <body>
 	<%= render 'layouts/errors' %>
