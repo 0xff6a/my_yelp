@@ -12,9 +12,9 @@ def _create_sample_restaurant_object(user)
 end
 
 def _create_user_object(email, password)
-	test_user = User.create(email: email, 
-													password: password,
-													password_confirmation: password)
+	User.create(email: email, 
+							password: password,
+							password_confirmation: password)
 end
 
 def _create_test_user_object

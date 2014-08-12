@@ -2,7 +2,7 @@ describe 'Reviews feature:'  do
 
 	before(:each) do
 		_sign_up_test_user
-		_create_sample_restaurant_object(_user)
+		_create_sample_restaurant_object(_create_user_object('me@test.com', 'password'))
 	end
 
 	context 'adding a new review' do
