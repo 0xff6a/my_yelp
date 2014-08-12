@@ -1,29 +1,33 @@
 <% if @restaurants.any? %>
-	<ul class='restaurant-list'>
-		<% @restaurants.each do |restaurant| %>
-			<li class='restaurant-list-item'>
-				<p class='restaurant-list-item-data'>
-					<h2 class='list-item-name'><%= restaurant.name %></h2>
-					<h2 class='list-item-cuisine'><%= restaurant.cuisine %></h2>
-					<h2 class='list-item-score'><%= restaurant.reviews.average(:rating) %></h2>
-				</p>
-				<ul class='restaurant-reviews-list'>
-					<% restaurant.reviews.reverse.each do |review| %>
-						<li class='review-list-item'>
-							<p class='review-comment'><%= review.comment %></p>
-							<var class='review-rating'><%= review.rating %></var>
-						</li>
-					<% end %>
-				</ul>
-				<nav class='restaurant-list-item-options'>
-					<%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} %> |
-					<%= link_to 'Edit', edit_restaurant_path(restaurant) %> |
-					<%= link_to 'Review', new_restaurant_review_path(restaurant) %>
-				</nav>
-			</li>
-		<% end %>	
-	</ul>
+	<section class='restaurant-list-container'>
+		<ul class='restaurant-list'>
+			<% @restaurants.each do |restaurant| %>
+				<li class='restaurant-list-item'>
+					<p class='restaurant-list-item-data'>
+						<h2 class='list-item-name'><%= restaurant.name %></h2>
+						<h2 class='list-item-cuisine'><%= restaurant.cuisine %></h2>
+						<h2 class='list-item-score'><%= restaurant.reviews.average(:rating) %></h2>
+					</p>
+					<ul class='restaurant-reviews-list'>
+						<% restaurant.reviews.reverse.each do |review| %>
+							<li class='review-list-item'>
+								<p class='review-comment'><%= review.comment %></p>
+								<var class='review-rating'><%= review.rating %></var>
+							</li>
+						<% end %>
+					</ul>
+					<nav class='restaurant-list-item-options'>
+						<%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} %> |
+						<%= link_to 'Edit', edit_restaurant_path(restaurant) %> |
+						<%= link_to 'Review', new_restaurant_review_path(restaurant) %>
+					</nav>
+				</li>
+			<% end %>	
+		</ul>
+	</section>
 <% else %>
-	No restaurants listed
+	<h1 class='empty-list'>No restaurants listed</h1>
 <% end %>
-<%= link_to 'Add a restaurant', new_restaurant_path %>
+<nav class='add-restaurant-options'>
+	<%= link_to 'Add a restaurant', new_restaurant_path %>
+</nav>

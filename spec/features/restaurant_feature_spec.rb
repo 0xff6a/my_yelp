@@ -5,7 +5,7 @@ describe 'restaurants' do
 	context 'no restaurants have been added' do
 
 		it 'should display a prompt to add a restaurant ' do
-			visit '/restaurants'
+			visit restaurants_path
 			expect(page).to have_content('No restaurants listed')
 			expect(page).to have_link('Add a restaurant')
 		end
@@ -20,11 +20,11 @@ describe 'restaurants' do
 		it 'should throw an error if a no-name restaurant is added' do
 			_add_restaurant('', 'American')
 			expect(page).to have_content("Error: name can't be blank")
-			_add_restaurant('KFC', '')
-			expect(page).to have_content("Error: cuisine can't be blank")
 		end
 
 		it 'should throw an error if a no-cuisine restaurant is added' do
+			_add_restaurant('KFC', '')
+			expect(page).to have_content("Error: cuisine can't be blank")
 		end
 
 	end
@@ -36,7 +36,7 @@ describe 'restaurants' do
 		end
 
 		it 'should display them' do
-			visit '/restaurants'
+			visit restaurants_path
 			expect(page).to have_content('Red Dog Saloon')
 			expect(page).to have_content('Diner')
 		end

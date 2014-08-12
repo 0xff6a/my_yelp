@@ -1,7 +1,7 @@
 <section class='review-input'>
 	<%= form_for [@restaurant, @review], html: {class: 'review-input-form'} do |f| %>
 		<%= f.label :rating %>
-		<%= f.text_field :rating, placeholder: "(1-5)" %>
+		<%= f.select :rating, (0..5) %>
 		<%= f.label :comment %>
 		<%= f.text_field :comment, placeholder: "Comment" %>
 		<%= f.button "Publish" %>

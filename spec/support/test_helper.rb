@@ -4,15 +4,15 @@
 	end
 
 	def _review_sample_restaurant(rating, comment)
-		visit '/restaurants'
+		visit restaurants_path
 		click_link 'Review'
-		fill_in 'review_rating', with: rating
+		select(rating, :from => 'review_rating')
 		fill_in 'review_comment', with: comment
 		click_on 'Publish'
 	end
 
 	def _edit_restaurant(name, cuisine)
-			visit '/restaurants'
+			visit restaurants_path
 			click_link 'Edit'			
 			fill_in 'restaurant_name', with: name if name
 			fill_in 'restaurant_cuisine', with: cuisine if cuisine
@@ -20,7 +20,7 @@
 	end
 
 	def _add_restaurant(name, cuisine)
-		visit '/restaurants'
+		visit restaurants_path
 		click_link 'Add a restaurant'
 		fill_in 'restaurant_name', with: name
 		fill_in 'restaurant_cuisine', with: cuisine
@@ -28,7 +28,7 @@
 	end
 
 	def _delete_restaurant
-		visit '/restaurants'
+		visit restaurants_path
 		click_link 'Delete'
 	end
 
