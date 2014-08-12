@@ -35,7 +35,12 @@ RSpec.describe Review, :type => :model do
 		end
 
 		it 'it should belong to a restaurant' do
-			invalid_review = Review.create(rating: 3, comment: 'poor')
+			invalid_review = Review.create(rating: 3, comment: 'poor', user_id: _user.id)
+			expect(Review.count).to eq(0)
+		end
+
+		it 'it should belong to a user' do
+			invalid_review = _restaurant.reviews.create(rating: 3, comment: 'poor')
 			expect(Review.count).to eq(0)
 		end
 

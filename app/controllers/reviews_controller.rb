@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
 
 	def create
 		review = Restaurant.find(params[:restaurant_id]).reviews.create(params[:review].permit(:rating, :comment))
+		review.user = current_user
 		review.save ? _restaurant_review_success : _restaurant_review_error(review)
 	end
 
