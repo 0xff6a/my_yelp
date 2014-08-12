@@ -50,3 +50,7 @@ def _sign_up_user(email, password)
 		click_on 'Sign up'
 	end
 end
+
+def _sign_out
+	click_link 'Sign Out'
+end
