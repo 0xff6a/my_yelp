@@ -17,7 +17,7 @@ module RestaurantsHelper
 
 	def _restaurant_update_error(bad_restaurant)
 		_flash_error(bad_restaurant)
-		redirect_to new_restaurant_path
+		redirect_to edit_restaurant_path(bad_restaurant)
 	end
 
 	def _restaurant_delete_success
@@ -27,7 +27,7 @@ module RestaurantsHelper
 
 	def _restaurant_delete_error(bad_restaurant)
 		_flash_error(bad_restaurant)
-		redirect_to new_restaurant_path
+		redirect_to restaurants_path
 	end
 
 	def _flash_error(bad_restaurant)
