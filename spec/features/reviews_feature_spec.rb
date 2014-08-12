@@ -1,4 +1,4 @@
-describe 'reviews'  do
+describe 'Reviews feature:'  do
 
 	before(:each) do
 		_create_sample_restaurant
@@ -11,16 +11,6 @@ describe 'reviews'  do
 			expect(page).to have_content('Thank you for your review')
 			expect(page).to have_content('Wonderful')
 			expect(page).to have_content(5)
-		end
-
-		xit 'must have a numerical rating' do
-			_review_sample_restaurant("bleep", 'Wonderful')
-			expect(page).to have_content("Error: rating is not a number")
-		end
-
-		xit 'must have a rating between 0 and 5' do
-			_review_sample_restaurant(6, 'Wonderful')
-			expect(page).to have_content("Error: rating is not included in the list")
 		end
 
 	end

@@ -14,6 +14,12 @@ RSpec.describe Review, :type => :model do
 			expect(invalid_review.errors.messages[:rating]).to include("can't be blank")
 		end
 
+		it 'should have a numerical rating' do
+			invalid_review = _restaurant.reviews.create(rating: 'top', comment: 'wonderful')
+			expect(_restaurant.reviews.count).to eq(0)
+			expect(invalid_review.errors.messages[:rating]).to include("is not a number")
+		end
+
 		it 'should have a rating between 0 and 5' do
 			invalid_review = _restaurant.reviews.create(rating: 99, comment: 'wonderful')
 			expect(_restaurant.reviews.count).to eq(0)
