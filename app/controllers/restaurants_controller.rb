@@ -11,21 +11,21 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		new_restaurant = Restaurant.create(params[:restaurant].permit(:name, :cuisine))
+		new_restaurant = current_user.restaurants.create(params[:restaurant].permit(:name, :cuisine))
 		new_restaurant.save ? _restaurant_create_success : _restaurant_create_error(new_restaurant)
 	end
 
 	def edit
-		@restaurant = Restaurant.find(params[:id])
+		@restaurant = current_user.restaurants.find(params[:id])
 	end
 
 	def update
-		target_restaurant = Restaurant.find(params[:id]).update(params[:restaurant].permit(:name, :cuisine))
+		target_restaurant = current_user.restaurants.find(params[:id]).update(params[:restaurant].permit(:name, :cuisine))
 		target_restaurant ? _restaurant_update_success : _restaurant_update_error(target_restaurant)
 	end
 
 	def destroy
-		target_restaurant = Restaurant.find(params[:id])
+		target_restaurant = current_user.restaurants.find(params[:id])
 		target_restaurant.delete ? _restaurant_delete_success : _restaurant_delete_error(target_restaurant)
 	end
 

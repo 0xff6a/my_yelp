@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe Review, :type => :model do
 
 	before(:each) do
-		_create_sample_restaurant
+		test_user = _create_test_user_object
+		_create_sample_restaurant_object(test_user)
 	end
 
 	context 'validations' do
@@ -35,7 +36,7 @@ RSpec.describe Review, :type => :model do
 
 		it 'it should belong to a restaurant' do
 			invalid_review = Review.create(rating: 3, comment: 'poor')
-			expect(_restaurant.reviews.count).to eq(0)
+			expect(Review.count).to eq(0)
 		end
 
 	end

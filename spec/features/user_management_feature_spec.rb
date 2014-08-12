@@ -39,4 +39,26 @@ describe 'User management feature:' do
 
 	end
 
+	context 'content access rights' do
+
+		before(:each) { _sign_up_test_user }
+
+		it 'a user can only edit restaurants they have created' do
+			
+		end
+
+		xit 'a user can only delete restaurants they have created' do
+		end
+
+		xit 'a user can only leave 1 review per restaurant' do
+		end
+
+		xit 'a user can delete their own reviews only' do
+		end
+
+		xit 'users cannot review restaurants they have created' do
+		end
+
+	end
+
 end

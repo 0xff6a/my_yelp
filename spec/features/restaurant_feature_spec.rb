@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe 'Restaurants feature:' do
+
+	before(:each) { _sign_up_test_user }
 	
 	context 'no restaurants have been added' do
 
@@ -27,7 +29,7 @@ describe 'Restaurants feature:' do
 	context 'restaurants have been added' do
 
 		before(:each) do
-			_create_sample_restaurant
+			_create_sample_restaurant_object(_user)
 		end
 
 		it 'should display them' do
