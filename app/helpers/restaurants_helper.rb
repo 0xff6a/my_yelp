@@ -1,5 +1,13 @@
 module RestaurantsHelper
 
+	def create_restaurant_from(data_hash)
+		current_user.restaurants.create(data_hash.permit(:name, :cuisine))
+	end
+
+	def update_restaurant_from(data_hash, restaurant_id)
+		current_user.restaurants.find(restaurant_id).update(data_hash.permit(:name, :cuisine))
+	end
+
 	def _restaurant_create_success
 		flash[:notice] = 'Your restaurant has been added'
 		redirect_to restaurants_path

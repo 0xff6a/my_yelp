@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		new_restaurant = current_user.restaurants.create(params[:restaurant].permit(:name, :cuisine))
+		new_restaurant = create_restaurant_from(params[:restaurant])
 		new_restaurant.save ? _restaurant_create_success : _restaurant_create_error(new_restaurant)
 	end
 
@@ -20,7 +20,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def update
-		target_restaurant = current_user.restaurants.find(params[:id]).update(params[:restaurant].permit(:name, :cuisine))
+		target_restaurant = update_restaurant_from(params[:restaurant], params[:id])
 		target_restaurant ? _restaurant_update_success : _restaurant_update_error(target_restaurant)
 	end
 
