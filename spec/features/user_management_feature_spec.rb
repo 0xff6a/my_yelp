@@ -20,10 +20,7 @@ describe 'User management feature:' do
 		end
 
 		it 'a user can sign in to the site once signed up ' do
-			click_link 'Sign In'
-			fill_in 'user_email', with: 'test@test.com'
-			fill_in 'user_password', with: '12345678'
-			click_on 'Sign in'
+			_sign_in
 			expect(page).to have_content('Signed in successfully')
 			expect(page).to have_content('test@test.com')
 		end

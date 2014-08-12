@@ -17,14 +17,9 @@ describe 'Restaurants feature:' do
 			expect(page).to have_content('Your restaurant has been added')
 		end	
 
-		it 'should throw an error if a no-name restaurant is added' do
+		it 'should throw an error if a bad restaurant is added' do
 			_add_restaurant('', 'American')
 			expect(page).to have_content("Error: name can't be blank")
-		end
-
-		it 'should throw an error if a no-cuisine restaurant is added' do
-			_add_restaurant('KFC', '')
-			expect(page).to have_content("Error: cuisine can't be blank")
 		end
 
 	end

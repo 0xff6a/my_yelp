@@ -54,3 +54,10 @@ end
 def _sign_out
 	click_link 'Sign Out'
 end
+
+def _sign_in
+	click_link 'Sign In'
+	fill_in 'user_email', with: 'test@test.com'
+	fill_in 'user_password', with: '12345678'
+	click_on 'Sign in'
+end
