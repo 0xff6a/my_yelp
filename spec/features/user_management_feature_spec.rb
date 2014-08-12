@@ -62,8 +62,12 @@ describe 'User management feature:' do
 			expect(page).not_to have_css 'a', text: 'Delete'
 		end
 
-		xit 'a user can only leave 1 review per restaurant' do
-
+		it 'a user can only leave 1 review per restaurant' do
+			_add_restaurant('KFC', 'bad')
+			_review_sample_restaurant(3, 'very bad')
+			_review_sample_restaurant(1, 'very very bad')
+			expect(page).to have_content('You cannot post multiple reviews')
+			expect(page).not_to have_content('very very bad')
 		end
 
 		it 'a user can delete their own reviews' do

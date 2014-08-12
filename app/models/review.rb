@@ -7,7 +7,8 @@ class Review < ActiveRecord::Base
 	validates 							:comment, length: { maximum: 150 }
 	validates 							:restaurant_id, presence: true
 	validates 							:user_id, presence: true
-
+	validates 							:restaurant_id, uniqueness: { scope: :user_id,
+    																										message: 'You cannot post multiple reviews' }
 	belongs_to :restaurant
 	belongs_to :user
 
