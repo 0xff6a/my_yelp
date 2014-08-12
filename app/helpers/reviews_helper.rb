@@ -13,7 +13,7 @@ module ReviewsHelper
 
 	def _restaurant_review_error(review)
 		flash[:errors] = review.errors.messages
-		redirect_to new_restaurant_review_path(review.restaurant)
+		redirect_to restaurants_path
 	end
 
 	def _review_delete_success

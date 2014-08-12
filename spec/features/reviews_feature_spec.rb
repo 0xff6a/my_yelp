@@ -20,6 +20,8 @@ describe 'Reviews feature:'  do
 
 		it 'average score' do
 			_review_sample_restaurant(5, 'Wonderful')
+			_sign_out
+			_sign_up_user('me2@test.com', 'password')
 			_review_sample_restaurant(1, 'poor')
 			expect(page).to have_content(3)
 		end

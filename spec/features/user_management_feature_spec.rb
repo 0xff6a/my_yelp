@@ -92,19 +92,6 @@ describe 'User management feature:' do
 			expect(page).to have_content('you cannot review a restaurant you create')
 		end
 
-		def _create_review_and_logout
-			_add_restaurant('KFC', 'bad')
-			_review_sample_restaurant(1, 'very bad')
-			_sign_out
-			_sign_up_user('nottest@test.com', '12345678')
-		end
-
-		def _create_restaurant_and_logout
-			_add_restaurant('KFC', 'bad')
-			_sign_out
-			_sign_up_user('nottest@test.com', '12345678')
-		end
-
 	end
 
 end
