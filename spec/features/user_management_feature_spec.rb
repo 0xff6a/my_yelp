@@ -39,44 +39,56 @@ describe 'User management feature:' do
 
 	end
 
-	context	'access rights when signed in' do
+	context	'access rights when signed out' do
 
 		it 'a user cannot see a link to add restaurants' do
 			visit restaurants_path
 			expect(page).not_to have_css 'a', text: 'Add a restaurant'
 		end
 
-		xit 'a user cannot see a link to edit restaurants' do
-
-		end
-
 	end
 
-	context 'content access rights when signed in' do
+	context 'access rights when signed in' do
 
 		before(:each) { _sign_up_test_user }
 
 		it 'a user can only see a link to edit restaurants they have created' do
-			_add_restaurant('KFC', 'bad')
-			_sign_out
-			_sign_up_user('nottest@test.com', '12345678')
+			_create_entry_and_logout
 			expect(page).not_to have_css 'a', text: 'Edit'
 		end
 
 		it 'a user can only delete restaurants they have created' do
-			_add_restaurant('KFC', 'bad')
-			_sign_out
-			_sign_up_user('nottest@test.com', '12345678')
+			_create_entry_and_logout
 			expect(page).not_to have_css 'a', text: 'Delete'
 		end
 
 		xit 'a user can only leave 1 review per restaurant' do
+
 		end
 
-		xit 'a user can delete their own reviews only' do
+		it 'a user can delete their own reviews' do
+			_add_restaurant('KFC', 'bad')
+			_review_sample_restaurant(1, 'very bad')
+			within('ul.restaurant-reviews-list') { click_link 'Delete' }
+			expect(page).not_to have_content('very bad')
+			expect(page).to have_content('Your review has been deleted')
+		end
+
+		it 'a user cannot delete another users review' do
+			_create_entry_and_logout
+			within('ul.restaurant-reviews-list') do
+				expect(page).not_to have_css 'a', 'Delete'
+			end
 		end
 
 		xit 'users cannot review restaurants they have created' do
+		end
+
+		def _create_entry_and_logout
+			_add_restaurant('KFC', 'bad')
+			_review_sample_restaurant(1, 'very bad')
+			_sign_out
+			_sign_up_user('nottest@test.com', '12345678')
 		end
 
 	end

@@ -1,4 +1,9 @@
 <li class='review-list-item'>
 	<p class='review-comment'><%= review.comment %></p>
 	<var class='review-rating'><%= review.rating %></var>
+	<nav class='review-actions'>
+		<% if current_user && current_user.id == review.user_id %>
+			<%= link_to 'Delete', restaurant_review_path(restaurant, review), method: :delete %>
+		<% end %>
+	</nav>
 </li>

@@ -16,4 +16,14 @@ module ReviewsHelper
 		redirect_to new_restaurant_review_path(review.restaurant)
 	end
 
+	def _review_delete_success
+		flash[:notice] = 'Your review has been deleted'
+		redirect_to restaurants_path
+	end
+
+	def _review_delete_error(review)
+		flash[:errors] = review.errors.messages
+		redirect_to restaurants_path	
+	end
+
 end
