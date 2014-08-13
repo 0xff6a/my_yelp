@@ -10,8 +10,10 @@
 	<%= render 'layouts/header' %>
 </header>
 <body>
-	<%= render 'layouts/errors' %>
-	<%= render 'layouts/flash' %>
-	<%= yield %>
+	<main>
+		<%= render 'layouts/errors' %>
+		<%= render 'layouts/flash' %>
+		<%= yield %>
+	</main>
 </body>
 </html>

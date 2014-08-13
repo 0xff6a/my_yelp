@@ -1,3 +1,46 @@
 // Place all the styles related to the restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.restaurant-list-container {
+	margin-top: 50px;
+	padding-top: 10px;
+}
+
+.restaurant-list {
+	display: inline-block;
+	width: 95%;
+	padding: 20px;
+}
+
+.restaurant-list-item {
+	margin: 20px;
+	background-color: rgba(51,55,69,0.9);
+	padding: 10px;
+}
+
+.restaurant-list-item-data{
+	display: inline-block;
+}
+
+.restaurant-list-item h2 {
+	display: inline-block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.restaurant-list-item h3 {
+	display: flex;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.list-item-score {
+	float: right;
+	margin-right: 20px;
+}
+
+.restaurant-reviews-list {
+	background-color: rgba(246,247,146,0.9);
+}
+
