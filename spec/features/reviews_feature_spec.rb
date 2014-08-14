@@ -18,6 +18,11 @@ describe 'Reviews feature:'  do
 
 	context 'displaying reviews' do
 
+		it 'shows N/A if no reviews' do
+			visit restaurants_path
+			expect(page).to have_content('N/A')
+		end
+
 		it 'average score' do
 			_review_sample_restaurant(5, 'Wonderful')
 			_sign_out

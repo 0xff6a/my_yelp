@@ -17,6 +17,7 @@ body {
 	background-color: #daede2;
 	font: 75% georgia, sans-serif;
 	margin: 0;
+	color: white;
 }
 
 header {
@@ -44,7 +45,6 @@ main {
 }
 
 h1 {
-	color: white;
 	font-size: 60px;
 	margin: 0 auto;
 	margin-left: 100px;
@@ -54,14 +54,12 @@ h1 {
 
 h2 {
 	font-family: "tablet-gothic",verdana,arial,sans-serif;
-	color: white;
 	font-size: 25px;
 	font-weight: normal;
 }
 
 h3 {
 	font-family: "tablet-gothic",verdana,arial,sans-serif;
-	color: white;
 	font-size: 18px;
 	font-weight: normal;
 }
@@ -81,6 +79,13 @@ a:hover, a:focus, a:active {
 a {
 	border-color: transparent;
 	transition: border-color 0.2s ease-in-out;
+}
+
+.flash-notice {
+	text-align: center;
+	background-color: cadetblue;
+	margin: 0 auto;
+	font-size: 20px;
 }
 
 
