@@ -38,7 +38,7 @@ ul {
 }
 
 main {
-	background-color: #93c4c4;
+	background-color: #77c4d3;
 	padding-top: 70px;
 	margin: 0 auto;
 	width: 80%;
@@ -73,7 +73,7 @@ a {
 
 a:hover, a:focus, a:active { 
 	border-color: #9685BA;
-	border-bottom: 1px solid #ea2e49;
+	border-bottom: 2px solid #ea2e49;
 }
 
 a {
@@ -88,9 +88,31 @@ a {
 	font-size: 20px;
 }
 
+.current-user-display {
+	display: inline-block;
+	font: 175% georgia, sans-serif;
+}
+
+.top-nav-bar {
+	padding-top: 0.75%;
+	display: inline-block;
+	width: 20%;
+	height: 65%;
+	background-color: rgba(51,55,69,0.9);
+	float: right;
+	margin-right: 5%;
+	font-size: 18px;
+}
+
+.top-nav-bar > a {
+	vertical-align: middle;
+	margin-right: 3%;
+	margin-left: 3%;
+}
+
 
 /*rgba(51,55,69,0.9) grey*/
 /*rgba(246,247,146,0.9) green*/
-/*#daede2 blue-green*/
+/*#77c4d3 blue-green*/
 /*#ea2e49 red*/
-/*#5cbbef blue*/
+/*#93c4c4 blue*/
