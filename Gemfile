@@ -31,6 +31,7 @@ group :development, :test do
 	gem 'capybara'
 end
 
+gem 'jquery-ui-rails'
 gem 'devise'
 gem 'launchy'
 
