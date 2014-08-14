@@ -82,6 +82,31 @@ a {
 	transition: border-color 0.2s ease-in-out;
 }
 
+button {
+	background-color: rgba(246,247,146,0.9);
+	border: none;
+	font-family: "tablet-gothic",verdana,arial,sans-serif;
+	font-weight: 500;
+	padding: 5px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+button:hover, button:focus, button:active {
+	border-color: #9685BA;
+	border-bottom: 2px solid #ea2e49;
+}
+
+form {
+	font-family: "tablet-gothic",verdana,arial,sans-serif;
+	font-size: 16px;
+	width: 55%;
+	margin: 0 auto;
+	padding: 25px;
+	background-color: rgba(51,55,69,0.9);
+}
+
+
 .flash-notice, .error-notice {
 	text-align: center;
 	background-color: cadetblue;
@@ -98,6 +123,8 @@ a {
 	margin-top: 25px;
 	display: inline-block;
 	font: 150% georgia, sans-serif;
+	float: right;
+	margin-right: 18%;
 }
 
 .top-nav-bar {
