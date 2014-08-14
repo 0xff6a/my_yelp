@@ -1,3 +1,21 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.review-rating {
+	display: inline-block;
+	font-size: 15px;
+	font-style: normal;
+	color: black;
+	font-family: "tablet-gothic",verdana,arial,sans-serif;
+}
+
+.review-comment {
+	display: inline-block;
+	font-size: 15px;
+	color: black;
+	font-family: "tablet-gothic",verdana,arial,sans-serif;
+}
+
+.review-list-item > p {
+	margin: 5px;
+}
