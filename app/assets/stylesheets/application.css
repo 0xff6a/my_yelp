@@ -45,7 +45,7 @@ main {
 }
 
 h1 {
-	font-size: 60px;
+	font-size: 50px;
 	margin: 0 auto;
 	margin-left: 100px;
 	float: left;
@@ -88,8 +88,9 @@ a {
 }
 
 .current-user-display {
+	margin-top: 25px;
 	display: inline-block;
-	font: 175% georgia, sans-serif;
+	font: 150% georgia, sans-serif;
 }
 
 .top-nav-bar {
