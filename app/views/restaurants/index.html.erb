@@ -7,7 +7,7 @@
 						<h2 class='list-item-name'><%= restaurant.name %></h2>
 						<h3 class='list-item-cuisine'><%= restaurant.cuisine %></h3>
 					</div>						
-					<h2 class='list-item-score'><%= restaurant.average_rating %></h2>
+					<h2 class='list-item-score'><%= star_rating(restaurant.average_rating) %></h2>
 					<ul class='restaurant-reviews-list'>
 						<% restaurant.reviews.reverse.each do |review| %>
 							<%= render partial: 'review_list_item', locals: {review: review, restaurant: restaurant} %>

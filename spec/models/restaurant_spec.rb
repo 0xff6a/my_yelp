@@ -30,7 +30,7 @@ RSpec.describe Restaurant, :type => :model do
 
 	end
 
-	context 'averaging ratings' do
+	context '#average_rating' do
 
 		before(:each) do
 			_user.restaurants.create(name: 'Good', cuisine: 'French') 
@@ -50,7 +50,6 @@ RSpec.describe Restaurant, :type => :model do
 			_restaurant.reviews.create(rating: 5, user_id: 2)
 			expect(_restaurant.average_rating).to eq(4)
 		end
-
 
 	end
 

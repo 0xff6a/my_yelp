@@ -11,7 +11,7 @@ describe 'Reviews feature:'  do
 			_review_sample_restaurant(5, 'Wonderful')
 			expect(page).to have_content('Thank you for your review')
 			expect(page).to have_content('Wonderful')
-			expect(page).to have_content(5)
+			expect(page).to have_content('★★★★★')
 		end
 
 	end
@@ -28,7 +28,7 @@ describe 'Reviews feature:'  do
 			_sign_out
 			_sign_up_user('me2@test.com', 'password')
 			_review_sample_restaurant(1, 'poor')
-			expect(page).to have_content(3)
+			expect(page).to have_content('★★★☆☆')
 		end
 
 	end

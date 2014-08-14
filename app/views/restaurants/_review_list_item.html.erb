@@ -1,5 +1,5 @@
 <li class='review-list-item'>
-	<var class='review-rating'><%= review.rating %></var>
+	<var class='review-rating'><%= star_rating(review.rating) %></var>
 	<p class='review-comment'><%= review.comment %></p>
 	<nav class='review-actions'>
 		<% if current_user && current_user.id == review.user_id %>
