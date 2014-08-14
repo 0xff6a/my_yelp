@@ -10,11 +10,10 @@ $(document).ready(function(){
 								minWidth: 400
 	});
 
-	$('#new-restaurant-link').click(function(){
+	$('#new-restaurant-link').on('click', function() {
 		 event.preventDefault();
 		 popUp.load('restaurants/new.html .restaurant-input-form');
 		 popUp.dialog('open');
-		 $('#new-restaurant-link').off();
 	});
 
 });
