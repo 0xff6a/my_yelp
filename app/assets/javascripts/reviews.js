@@ -5,17 +5,17 @@ $(document).ready(function(){
 	popUp.dialog({autoOpen: false, 
 								modal: true,
 								resizeable: false, 
-								title: 'Add a new restaurant',
+								title: 'Submit a review',
 								minHeight: 250,
 								minWidth: 400
 	});
 
-	$('#new-restaurant-link').click(function(){
+	$('.new-review-link').on('click',function(event){
 		 event.preventDefault();
-		 popUp.load('restaurants/new.html .restaurant-input-form');
+		 console.log(this.href);
+		 popUp.load(this.href + '.review-input-form');
 		 popUp.dialog('open');
-		 $('#new-restaurant-link').off();
+		 $('.new-review-link').off();
 	});
 
 });
-

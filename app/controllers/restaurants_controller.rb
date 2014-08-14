@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
 	def index
-		@restaurants = _restaurant_list
+		@restaurants = Restaurant.all.reverse
 	end
 
 	def new
@@ -69,10 +69,6 @@ class RestaurantsController < ApplicationController
 
 	def _flash_error(bad_restaurant)
 		flash[:errors] = bad_restaurant.errors.messages
-	end
-
-	def _restaurant_list
-		Restaurant.all.reverse
 	end
 
 end
