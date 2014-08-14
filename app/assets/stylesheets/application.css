@@ -82,11 +82,16 @@ a {
 	transition: border-color 0.2s ease-in-out;
 }
 
-.flash-notice {
+.flash-notice, .error-notice {
 	text-align: center;
 	background-color: cadetblue;
 	margin: 0 auto;
 	font-size: 20px;
+	font-family: "tablet-gothic",verdana,arial,sans-serif;
+}
+
+.error-notice {
+	color: rgba(246,247,146,0.9);
 }
 
 .current-user-display {
