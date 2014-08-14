@@ -1,4 +1,4 @@
-<section class='restaurant-input'>
+<section id='restaurant-input' class='restaurant-input'>
 	<%= form_for restaurant, html: {class: 'restaurant-input-form'} do |f| %>
 		<%= f.label :name %>
 		<%= f.text_field :name, placeholder: "#{restaurant.name ? restaurant.name : 'Restaurant name'}" %>

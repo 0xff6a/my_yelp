@@ -45,9 +45,46 @@
 }
 
 .restaurant-input-form {
-	height: 50px;
+	height: 150px;
+	width: 300px;
 }
 
 .restaurant-input-form > input {
 	font-size: 16px;
+	color: white;
+	float: right;
+	margin: 5px;
+}
+
+.restaurant-input-form > label {
+	color: white;
+	float: left;
+	margin-bottom: 15px;
+}
+
+/*Widget*/
+.ui-widget-header {
+	background: none !important;
+	background-color: #ea2e49 !important;
+	border: none !important;
+	font-size: 18px !important;
+	font-family: "tablet-gothic",verdana,arial,sans-serif !important;
+	color: white !important;
+	font-weight: normal !important;
+	text-align: center !important;
+	border-radius: none;
+}
+
+.ui-dialog {
+	padding: 0px !important;
+}
+
+.ui-widget-content {
+	border: none !important;
+	background: none !important;
+	background-color: rgba(51,55,69,0.9) !important;
+}
+
+.ui-widget-content  input {
+	color: black	;
 }
