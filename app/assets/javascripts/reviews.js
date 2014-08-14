@@ -12,7 +12,6 @@ $(document).ready(function(){
 
 	$('.new-review-link').on('click', function(event){
 		 event.preventDefault();
-		 console.log(this.href);
 		 popUp.load(this.href + '.review-input-form');
 		 popUp.dialog('open');
 		 $('a').off();
