@@ -10,11 +10,10 @@ $(document).ready(function(){
 								minWidth: 400
 	});
 
-	$('.new-review-link').on('click', function(event){
+	$('.new-review-link').off().on('click', function(event){
 		 event.preventDefault();
 		 popUp.load(this.href + '.html' + ' .review-input-form');
 		 popUp.dialog('open');
-		 $('a').off();
 	});
 
 });
