@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 	$('.new-review-link').on('click', function(event){
 		 event.preventDefault();
-		 popUp.load(this.href + '.review-input-form');
+		 popUp.load(this.href + '.html' + ' .review-input-form');
 		 popUp.dialog('open');
 		 $('a').off();
 	});

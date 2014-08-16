@@ -44,7 +44,7 @@ class RestaurantsController < ApplicationController
 
 	def _restaurant_create_error(bad_restaurant)
 		_flash_error(bad_restaurant)
-		redirect_to new_restaurant_path
+		redirect_to restaurants_path
 	end
 
 	def _restaurant_update_success
