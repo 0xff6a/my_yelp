@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require_tree .
+function popUpFormFrom(address_string, popUp) {
+	 event.preventDefault();
+	 popUp.load(address_string);
+	 popUp.dialog('open');
+};

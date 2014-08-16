@@ -8,7 +8,6 @@ Technologies used:
 - Ruby on Rails
 - JavaScript
 - jQuery & jQuery UI
-- Devise gem for user management
 - RSpec & Capybara for testing
 - Postgres DB
 
@@ -26,6 +25,7 @@ Notes:
 - Used jQuery UI to display review form and new restaurant form as a pop up from the homepage
 - Styling is a tribute to CSS Zen Garden
 - PostgresSQL must be installed to run the application
+- Devise gem is used for user management
 
 Running the application
 -----------------------

@@ -11,15 +11,11 @@ $(document).ready(function(){
 	});
 
 	$('#new-restaurant-link').on('click', function() {
-		 event.preventDefault();
-		 popUp.load('restaurants/new.html .restaurant-input-form');
-		 popUp.dialog('open');
+		 popUpFormFrom('restaurants/new.html .restaurant-input-form', popUp);
 	});
 
 	$('.edit-restaurant-link').off().on('click', function() {
-		 event.preventDefault();
-		 popUp.load(this.href + '.html' + ' .restaurant-input-form');
-		 popUp.dialog('open');
+		 popUpFormFrom(this.href + '.html' + ' .restaurant-input-form', popUp);
 	});
 
 });

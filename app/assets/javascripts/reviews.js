@@ -11,9 +11,7 @@ $(document).ready(function(){
 	});
 
 	$('.new-review-link').off().on('click', function(event){
-		 event.preventDefault();
-		 popUp.load(this.href + '.html' + ' .review-input-form');
-		 popUp.dialog('open');
+		 popUpFormFrom(this.href + '.html' + ' .review-input-form', popUp);
 	});
 
 });
