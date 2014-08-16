@@ -19,7 +19,7 @@ class RestaurantsController < ApplicationController
 
 	def update
 		target_restaurant = _update_restaurant_from(params[:restaurant], params[:id])
-		target_restaurant ? _restaurant_update_success : _restaurant_update_error(target_restaurant)
+		target_restaurant ? _restaurant_update_success : _restaurant_update_error
 	end
 
 	def destroy
@@ -52,9 +52,9 @@ class RestaurantsController < ApplicationController
 		redirect_to restaurants_path
 	end
 
-	def _restaurant_update_error(bad_restaurant)
-		_flash_error(bad_restaurant)
-		redirect_to edit_restaurant_path(bad_restaurant)
+	def _restaurant_update_error
+		flash[:errors] = [['your update failed']]
+		redirect_to restaurants_path
 	end
 
 	def _restaurant_delete_success

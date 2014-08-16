@@ -16,5 +16,11 @@ $(document).ready(function(){
 		 popUp.dialog('open');
 	});
 
+	$('.edit-restaurant-link').off().on('click', function() {
+		 event.preventDefault();
+		 popUp.load(this.href + '.html' + ' .restaurant-input-form');
+		 popUp.dialog('open');
+	});
+
 });
 
