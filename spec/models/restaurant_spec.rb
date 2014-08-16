@@ -32,9 +32,7 @@ RSpec.describe Restaurant, :type => :model do
 
 	context '#average_rating' do
 
-		before(:each) do
-			_user.restaurants.create(name: 'Good', cuisine: 'French') 
-		end
+		before(:each) { _user.restaurants.create(name: 'Good', cuisine: 'French') }
 
 		it 'returns N/A when there are no reviews' do
 			expect(_restaurant.average_rating).to eq('N/A')
@@ -49,6 +47,20 @@ RSpec.describe Restaurant, :type => :model do
 			_restaurant.reviews.create(rating: 3, user_id: 1)
 			_restaurant.reviews.create(rating: 5, user_id: 2)
 			expect(_restaurant.average_rating).to eq(4)
+		end
+
+	end
+
+	context '#reviewable_by' do
+
+		before(:each) do
+			_user.restaurants.create(name: 'Good', cuisine: 'French') 
+			@other_user = _create_user_object('nottest@test.com', '12345678')
+		end
+
+		it 'knows whether a restaurant can be reviewed by a given user' do
+			expect(_restaurant.is_reviewable_by?(_user)).to be false
+			expect(_restaurant.is_reviewable_by?(@other_user)).to be true
 		end
 
 	end

@@ -80,6 +80,7 @@ describe 'User management feature:' do
 
 		it 'a user cannot delete another users review' do
 			_create_review_and_logout
+			_sign_in
 			within('ul.restaurant-reviews-list') do
 				expect(page).not_to have_css 'a', 'Delete'
 			end
@@ -87,9 +88,9 @@ describe 'User management feature:' do
 
 		it 'users cannot review restaurants they have created' do
 			_add_restaurant('KFC', 'bad')
-			_review_sample_restaurant(1, 'very bad')
-			expect(page).not_to have_content('very bad')
-			expect(page).to have_content('you cannot review a restaurant you create')
+			within('ul.restaurant-reviews-list') do
+				expect(page).not_to have_content('Review')
+			end
 		end
 
 	end

@@ -11,8 +11,8 @@ class Review < ActiveRecord::Base
     																										message: 'you cannot post multiple reviews' }
 	validate 								:creator_cannot_validate_restaurant
 
-	belongs_to :restaurant
-	belongs_to :user
+	belongs_to 							:restaurant
+	belongs_to 							:user
 
 	private
 
