@@ -8,7 +8,8 @@ Technologies used:
 - Ruby on Rails
 - JavaScript
 - jQuery & jQuery UI
-- RSpec & Capybara for testing
+- RSpec & Capybara for testing Ruby components
+- Poltergeist for testing JavaScript components
 - Postgres DB
 
 Functionality:
@@ -19,6 +20,9 @@ Functionality:
 - Logged in users can review a submitted restaurant
 - Average user rating is displayed for each restaurant using the star system
 - Validation ensures users cannot post multiple reviews, review restaurants they have created or edit/delete restuarants created by other users
+- Users can give a review a thumbs up or thumbs down
+- Reviews are displayed based on their ranking derived from thumbs up vs down
+- Validations ensure users can give the same review multiple thumbs up/down
 
 Notes:
 ------
@@ -33,9 +37,3 @@ Running the application
 - rspec in CLI from the root directory will run the test suite
 - bin/rake db:seed will seed the database with sample entries to demonstrate functionality
 
-TO DO:
-------
-- Add endorsements -> each review has an upvote and downvote button. Reviews are ordered by their upvotes and downvotes
-- Add endorsement validation - one user can only upvote or downvote once
-- Endorsement association: belongs_to review, belons_to user
-- Test in poltergeist

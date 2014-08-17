@@ -4,6 +4,6 @@
 		<%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'edit-restaurant-link' %> 
 	<% end %>
 	<% if restaurant.is_reviewable_by?(current_user) %>
-	 | <%= link_to 'Review', new_restaurant_review_path(restaurant), class: 'new-review-link' %>
+	 <%= link_to 'Review', new_restaurant_review_path(restaurant), class: 'new-review-link' %>
 	<% end %>
 <% end %>
