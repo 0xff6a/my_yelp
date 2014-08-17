@@ -26,6 +26,12 @@ RSpec.describe Rate, :type => :model do
 			expect(valid_rate).to be_valid
 		end
 
+		it 'should only allow a user to create it once' do
+			valid_rate = _review.rates.create(user_id: @test_user.id)
+			invalid_rate = _review.rates.create(user_id: @test_user.id)
+			expect(invalid_rate).not_to be_valid
+		end
+
 	end
 	
 end

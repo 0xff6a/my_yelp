@@ -26,6 +26,12 @@ RSpec.describe Rubbish, :type => :model do
 			expect(valid_rubbish).to be_valid
 		end
 
+		it 'should only allow a user to create it once' do
+			valid_rubbish = _review.rubbishes.create(user_id: @test_user.id)
+			invalid_rubbish = _review.rubbishes.create(user_id: @test_user.id)
+			expect(invalid_rubbish).not_to be_valid
+		end
+
 	end
 
 end
