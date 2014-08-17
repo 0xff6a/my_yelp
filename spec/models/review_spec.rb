@@ -72,4 +72,34 @@ RSpec.describe Review, :type => :model do
 
 	end
 
+	context '#ranking' do
+
+		before(:each) do
+			@review = _restaurant.reviews.create(	rating: 3, 
+																						comment: 'poor', 
+																						user_id: @other_user.id)
+		end
+
+		it 'should return a ranking of 0 for no rates or rubbishes' do
+			expect(@review.ranking).to eq 0
+		end
+
+		it 'should return a ranking of 1 for 1 rate and no rubbishes' do
+			@review.rates.create(user_id: @other_user.id)
+			expect(@review.ranking).to eq 1
+		end
+
+		it 'should return a ranking of -1 for no rates and 1 rubbish' do
+			@review.rubbishes.create(user_id: @other_user.id)
+			expect(@review.ranking).to eq -1
+		end
+
+		it 'should return a ranking of 0 for 1 rate and 1 rubbish' do
+			@review.rubbishes.create(user_id: @other_user.id)
+			@review.rates.create(user_id: @other_user.id)
+			expect(@review.ranking).to eq 0
+		end
+
+	end
+
 end

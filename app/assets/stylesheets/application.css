@@ -66,6 +66,10 @@ h3 {
 	font-weight: normal;
 }
 
+var {
+	font-size: 16px;
+}
+
 a {
 	font-family: "tablet-gothic",verdana,arial,sans-serif;
 	color: white;

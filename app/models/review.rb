@@ -16,6 +16,10 @@ class Review < ActiveRecord::Base
 	has_many								:rates, dependent: :destroy
 	has_many 								:rubbishes, dependent: :destroy
 
+	def ranking 
+		rates.count - rubbishes.count
+	end
+	
 	private
 
 	def creator_cannot_validate_restaurant
