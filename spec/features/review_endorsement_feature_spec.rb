@@ -16,6 +16,13 @@ describe 'Endorsing reviews: ' do
 			expect(page).to have_css 'var', text: '1'
 		end
 
+		it ' a signed in user cannot rate a review more than once', :js => true do
+			visit restaurants_path
+			click_link 'Rate'
+			click_link 'Rate'
+			expect(page).to have_css 'var', text: '1'
+		end
+
 	end
 
 	context 'rubbish' do
