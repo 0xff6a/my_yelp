@@ -14,6 +14,7 @@ class Review < ActiveRecord::Base
 	belongs_to 							:restaurant
 	belongs_to 							:user
 	has_many								:rates, dependent: :destroy
+	has_many 								:rubbishes, dependent: :destroy
 
 	private
 
