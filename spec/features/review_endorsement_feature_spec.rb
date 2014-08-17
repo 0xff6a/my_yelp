@@ -4,8 +4,8 @@ describe 'Endorsing reviews: ' do
 
 	before(:each) do
 		_sign_up_test_user
-		_create_review_and_logout
-		_sign_in
+		_create_restaurant_and_logout
+		_review_sample_restaurant(1, 'very bad')
 	end
 
 	context 'rate' do
@@ -13,7 +13,7 @@ describe 'Endorsing reviews: ' do
 		it 'a signed in user can rate a review, updating the reviews rate count', :js => true do
 			visit restaurants_path
 			click_link 'Rate'
-			expect(page).to have_content 'rated by 1'
+			expect(page).to have_css 'var', text: '1'
 		end
 
 	end

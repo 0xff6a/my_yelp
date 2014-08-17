@@ -1,4 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe Rates, :type => :model do
+RSpec.describe Rate, :type => :model do
 end
