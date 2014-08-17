@@ -82,7 +82,7 @@ describe 'User management feature:' do
 			_create_review_and_logout
 			_sign_in
 			within('ul.restaurant-reviews-list') do
-				expect(page).not_to have_css 'a', 'Delete'
+				expect(page).not_to have_css 'a', text: 'Delete'
 			end
 		end
 

@@ -32,3 +32,10 @@ Running the application
 - bin/rails server in CLI will open the app on port 3000
 - rspec in CLI from the root directory will run the test suite
 - bin/rake db:seed will seed the database with sample entries to demonstrate functionality
+
+TO DO:
+------
+- Add endorsements -> each review has an upvote and downvote button. Reviews are ordered by their upvotes and downvotes
+- Add endorsement validation - one user can only upvote or downvote once
+- Endorsement association: belongs_to review, belons_to user
+- Test in poltergeist
