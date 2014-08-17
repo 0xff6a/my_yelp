@@ -2,7 +2,8 @@
 	<var class='review-rating'><%= star_rating(review.rating) %></var>
 	<p class='review-comment'> | <%= review.comment %></p>
 	<em>Posted <%= time_ago_in_words(review.created_at) %> ago</em>
-	<%= link_to 'Rate', new_review_rate_path(review), class: 'new-rate-link' %> <%= review.rates.count %>
+	<%= link_to 'Rate', review_rates_path(review), class: 'new-rate-link' %> 
+	<var class='rates-count'><%= review.rates.count %></var>
 	<nav class='review-actions'>
 		<% if current_user && current_user.id == review.user_id %>
 			<%= link_to 'Delete', restaurant_review_path(restaurant, review), method: :delete %>
