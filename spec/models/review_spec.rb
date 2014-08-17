@@ -89,9 +89,9 @@ RSpec.describe Review, :type => :model do
 			expect(@review.ranking).to eq 1
 		end
 
-		it 'should return a ranking of -1 for no rates and 1 rubbish' do
+		it 'should return a ranking of 0 for no rates and 1 rubbish' do
 			@review.rubbishes.create(user_id: @other_user.id)
-			expect(@review.ranking).to eq -1
+			expect(@review.ranking).to eq 0
 		end
 
 		it 'should return a ranking of 0 for 1 rate and 1 rubbish' do

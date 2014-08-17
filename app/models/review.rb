@@ -17,7 +17,7 @@ class Review < ActiveRecord::Base
 	has_many 								:rubbishes, dependent: :destroy
 
 	def ranking 
-		rates.count - rubbishes.count
+		rates.count / (rubbishes.count + 1) 
 	end
 	
 	private
