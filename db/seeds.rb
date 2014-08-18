@@ -10,11 +10,11 @@ Restaurant.destroy_all
 
 user1 = User.create(email: '1@1.com', password:'12345678', password_confirmation: '12345678')	
 user2 = User.create(email: '2@2.com', password:'12345678', password_confirmation: '12345678')		
-user2 = User.create(email: '2@2.com', password:'12345678', password_confirmation: '12345678')	
+user3 = User.create(email: '3@3.com', password:'12345678', password_confirmation: '12345678')	
 
-restaurant1 = user1.Restaurant.create(name: 'Red Dog Saloon', cuisine: 'Diner')
-restaurant2 = user2.Restaurant.create(name: 'Duck and Waffle', cuisine: 'British')
-restaurant3 = user3.Restaurant.create(name: 'NanBan', cuisine: 'Japanese')
+restaurant1 = user1.restaurants.create(name: 'Red Dog Saloon', cuisine: 'Diner')
+restaurant2 = user2.restaurants.create(name: 'Duck and Waffle', cuisine: 'British')
+restaurant3 = user3.restaurants.create(name: 'NanBan', cuisine: 'Japanese')
 
 review1 = restaurant1.reviews.create(	:rating => '4', :comment => 'Great', :user_id => user2.id)
 review2 =restaurant1.reviews.create(	:rating => '3', :comment => 'Good food, but disappointing service', :user_id => user3.id)
@@ -25,10 +25,10 @@ review4 =restaurant2.reviews.create(	:rating => '2', :comment => 'Interesting me
 review5 =restaurant3.reviews.create(	:rating => '5', :comment => 'Great!', :user_id => user1.id)
 review6 =restaurant3.reviews.create(	:rating => '5', :comment => 'Unbelievable!', :user_id => user2.id)
 
-review1.rubbish(user_id: user1.id)
-review1.rubbish(user_id: user2.id)
-review2.rate(user_id: user3.id)
+review1.rubbishes.create(user_id: user1.id)
+review1.rubbishes.create(user_id: user2.id)
+review2.rates.create(user_id: user3.id)
 
-review3.rubbish(user_id: user1.id)
-review3.rate(user_id: user3.id)
-review3.rate(user_id: user2.id)
+review3.rubbishes.create(user_id: user1.id)
+review3.rates.create(user_id: user3.id)
+review3.rates.create(user_id: user2.id)
