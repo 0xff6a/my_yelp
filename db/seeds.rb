@@ -8,9 +8,9 @@
 User.destroy_all
 Restaurant.destroy_all
 
-user1 = User.create(email: '1@1.com', '12345678', '12345678')	
-user2 = User.create(email: '2@2.com', '12345678', '12345678')	
-user2 = User.create(email: '2@2.com', '12345678', '12345678')	
+user1 = User.create(email: '1@1.com', password:'12345678', password_confirmation: '12345678')	
+user2 = User.create(email: '2@2.com', password:'12345678', password_confirmation: '12345678')		
+user2 = User.create(email: '2@2.com', password:'12345678', password_confirmation: '12345678')	
 
 restaurant1 = user1.Restaurant.create(name: 'Red Dog Saloon', cuisine: 'Diner')
 restaurant2 = user2.Restaurant.create(name: 'Duck and Waffle', cuisine: 'British')
