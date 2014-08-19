@@ -36,6 +36,8 @@ end
 gem 'jquery-ui-rails'
 gem 'devise'
 gem 'launchy'
+gem 'rails_12factor'
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
