@@ -36,4 +36,6 @@ Running the application
 - bin/rails server in CLI will open the app on port 3000
 - rspec in CLI from the root directory will run the test suite
 - bin/rake db:seed will seed the database with sample entries to demonstrate functionality
+- hosted on heroku: http://protected-coast-1785.herokuapp.com/
+
 
