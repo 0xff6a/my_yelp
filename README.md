@@ -1,6 +1,11 @@
 Week 8 @ Makers Academy: Introduction to Rails - Cloning Yelp
 ============
 
+Hosted on heroku: http://protected-coast-1785.herokuapp.com/
+
+Ruby Version
+------------
+
 Ruby 2.1.2
 
 Technologies used:
@@ -15,7 +20,7 @@ Technologies used:
 Functionality:
 -------------
 - Home page displays a list of restaurants and associated reviews
-- Users can created a profile and log in to ths site
+- Users can created a profile and log in to the site
 - Logged in users can submit restaurants for review
 - Logged in users can review a submitted restaurant
 - Average user rating is displayed for each restaurant using the star system
@@ -36,6 +41,6 @@ Running the application
 - bin/rails server in CLI will open the app on port 3000
 - rspec in CLI from the root directory will run the test suite
 - bin/rake db:seed will seed the database with sample entries to demonstrate functionality
-- hosted on heroku: http://protected-coast-1785.herokuapp.com/
+
 
 
