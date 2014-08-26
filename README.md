@@ -20,11 +20,11 @@ Technologies used:
 Functionality:
 -------------
 - Home page displays a list of restaurants and associated reviews
-- Users can created a profile and log in to the site
+- Users can create a profile and log in to the site
 - Logged in users can submit restaurants for review
 - Logged in users can review a submitted restaurant
 - Average user rating is displayed for each restaurant using the star system
-- Validation ensures users cannot post multiple reviews, review restaurants they have created or edit/delete restuarants created by other users
+- Validation ensures users cannot post multiple reviews, review restaurants they have created or edit/delete restaurants created by other users
 - Users can give a review a thumbs up or thumbs down
 - Reviews are displayed based on their ranking derived from thumbs up vs down
 - Validations ensure users can give the same review multiple thumbs up/down
